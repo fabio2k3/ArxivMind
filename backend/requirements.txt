@@ -1,0 +1,38 @@
+# =============================================================================
+# ArxivMind — dependencias Python
+# =============================================================================
+# Este archivo se va a ir completando ETAPA A ETAPA. Por ahora solo lo
+# mínimo necesario para arrancar el esqueleto del proyecto.
+#
+# Instalación:
+#   pip install -r backend/requirements.txt
+
+# ── Utilidades generales ─────────────────────────────────────────────────────
+python-dotenv>=1.0.0       # carga de variables de entorno desde .env
+certifi>=2024.0.0          # verificación SSL
+
+# Las siguientes se irán añadiendo por etapa:
+# ── Etapa 3 (crawler) ────────────────────────────────────────────────────────
+# pymupdf>=1.24.0
+#
+# ── Etapa 4 (indexación TF) ──────────────────────────────────────────────────
+# nltk>=3.8.0
+#
+# ── Etapa 5 (LSI) ─────────────────────────────────────────────────────────────
+# numpy, scipy, scikit-learn, joblib
+#
+# ── Etapa 6 (embeddings + FAISS) ─────────────────────────────────────────────
+# sentence-transformers, faiss-cpu
+#
+# ── Etapa 9 (web search) ──────────────────────────────────────────────────────
+# tavily-python, ddgs
+#
+# ── Etapa 10 (RAG con Hugging Face) ──────────────────────────────────────────
+# transformers, torch, accelerate  (backend local)
+# huggingface_hub                  (backend Inference API)
+#
+# ── Etapa 12 (frontend) ───────────────────────────────────────────────────────
+# streamlit
+#
+# ── Testing ───────────────────────────────────────────────────────────────────
+# pytest, pytest-cov
