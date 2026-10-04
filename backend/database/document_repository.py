@@ -9,7 +9,7 @@ from backend.database.schema import get_connection
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
-def upsert_pape(
+def upsert_paper(
     arxiv_id: str,
     title: str,
     authors: Optional[str] = None,
@@ -62,7 +62,7 @@ def save_pdf_error(arxiv_id:str, error: str, db_path: Optional[Path] = None) -> 
 def get_paper(arxiv_id:str,  db_path: Optional[Path] = None):
     with get_connection(db_path) as conn:
         return conn.execute(
-            "SELECT +* FROM papers WHERE arxiv_id = ?", (arxiv_id,)
+            "SELECT * FROM papers WHERE arxiv_id = ?", (arxiv_id,)
         ).fetchone
 
 def paper_exists(arxiv_id:str,  db_path: Optional[Path] = None) -> bool:
