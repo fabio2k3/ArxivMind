@@ -55,7 +55,7 @@ def save_full_text(arxiv_id: str, full_text:str, db_path: Optional[Path] = None)
 def save_pdf_error(arxiv_id:str, error: str, db_path: Optional[Path] = None) -> None:
     with get_connection(db_path) as conn:
         conn.execute(
-            "UPDATE papers SET pdf_status = 2, index_error = ? WHERE arxiv_id = ?"
+            "UPDATE papers SET pdf_status = 2, index_error = ? WHERE arxiv_id = ?",
             (error, arxiv_id),
         )
 
@@ -63,13 +63,14 @@ def get_paper(arxiv_id:str,  db_path: Optional[Path] = None):
     with get_connection(db_path) as conn:
         return conn.execute(
             "SELECT * FROM papers WHERE arxiv_id = ?", (arxiv_id,)
-        ).fetchone
+        ).fetchone()
 
 def paper_exists(arxiv_id:str,  db_path: Optional[Path] = None) -> bool:
     with get_connection(db_path) as conn:
         row = conn.execute(
             "SELECT 1 FROM papers WHERE arxiv_id = ?", (arxiv_id,)
-        ).fetchone
+        ).fetchone()
+        return row is not None
 
 def get_pending_pdf_ids(limit: int = 50, db_path: Optional[Path] = None) -> list[str]:
     """IDs de papers cuyo PDF todavía no se descargó (pdf_status=0)."""
