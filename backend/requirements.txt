@@ -11,10 +11,13 @@
 python-dotenv>=1.0.0       # carga de variables de entorno desde .env
 certifi>=2024.0.0          # verificación SSL
 
+# ── Testing (desde Etapa 1) ──────────────────────────────────────────────────
+pytest>=8.0.0
+
+# ── Etapa 2 (crawler) ────────────────────────────────────────────────────────
+pymupdf>=1.24.0
+
 # Las siguientes se irán añadiendo por etapa:
-# ── Etapa 3 (crawler) ────────────────────────────────────────────────────────
-# pymupdf>=1.24.0
-#
 # ── Etapa 4 (indexación TF) ──────────────────────────────────────────────────
 # nltk>=3.8.0
 #
