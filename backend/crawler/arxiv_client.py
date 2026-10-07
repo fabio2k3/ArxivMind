@@ -48,10 +48,10 @@ def parse_entries(xml_text: str) -> list[dict]:
         pdf_url = ""
 
         for link in entry.findall(tag("link")):
-            if link.get("tittle") == "pdf":
+            if link.get("title") == "pdf":
                 pdf_url = link.get("href", "")
-            if not pdf_url:
-                pdf_url = ARXIV_PDF_URL_TEMPLATE.format(arxiv_id=arxiv_id)
+        if not pdf_url:
+            pdf_url = ARXIV_PDF_URL_TEMPLATE.format(arxiv_id=arxiv_id)
 
         categories = ", ".join(filter(None, (c.get("term", "") for c in entry.findall(tag("category")))))
 
